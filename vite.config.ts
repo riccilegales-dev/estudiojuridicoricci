@@ -3,11 +3,8 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 
-// ⚠️ IMPORTANTE: Este base debe coincidir con el nombre del repositorio de GitHub
-// En tu caso: "estudiojuridicoricci"
-
 export default defineConfig(({ mode }) => ({
-  base: "/estudiojuridicoricci/", // 👈 ESTA LÍNEA HACE QUE FUNCIONE EN GITHUB PAGES
+  base: "/estudiojuridicoricci/", // 👈 importantísimo: coincide con el nombre de tu repo en GitHub
   server: {
     host: "::",
     port: 8080,
