@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/estudiojuridicoricci/", // 👈 IMPORTANTE: base correcta para GitHub Pages
+  base: "/estudiojuridicoricci/", // 👈 IMPORTANTE: el nombre exacto del repositorio
   server: {
     host: "::",
     port: 8080,
