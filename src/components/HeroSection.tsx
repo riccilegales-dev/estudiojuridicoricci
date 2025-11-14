@@ -2,11 +2,10 @@ import { Link } from "react-router-dom";
 import logoRicci from "@/assets/logo-ricci-circle.png";
 
 // Componente personalizado para desplazamiento
-const ScrollLink = ({ to, onClick, children }: { to: string; onClick?: (e: React.MouseEvent) => void; children: React.ReactNode }) => {
+const ScrollLink = ({ to, children }: { to: string; children: React.ReactNode }) => {
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    if (onClick) onClick(e);
     const target = document.getElementById(to.replace("#", ""));
     if (target) {
       target.scrollIntoView({ behavior: "smooth" });
