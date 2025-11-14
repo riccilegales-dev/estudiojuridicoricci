@@ -1,4 +1,26 @@
+import { Link } from "react-router-dom";
 import logoRicci from "@/assets/logo-ricci-circle.png";
+
+// Componente personalizado para desplazamiento
+const ScrollLink = ({ to, onClick, children }: { to: string; onClick?: (e: React.MouseEvent) => void; children: React.ReactNode }) => {
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (onClick) onClick(e);
+    const target = document.getElementById(to.replace("#", ""));
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    } else {
+      console.error(`Error: No se encontró la sección con id='${to.replace("#", "")}'.`);
+    }
+  };
+
+  return (
+    <Link to={to} onClick={handleClick} className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-primary font-semibold px-8 py-4 rounded-md transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+      {children}
+    </Link>
+  );
+};
 
 const HeroSection = () => {
   return (
@@ -26,15 +48,12 @@ const HeroSection = () => {
           </p>
           
           <div className="pt-4">
-            <a 
-              href="#servicios" 
-              className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-primary font-semibold px-8 py-4 rounded-md transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-            >
+            <ScrollLink to="#servicios">
               Consultar
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M12 5v14M19 12l-7 7-7-7"/>
               </svg>
-            </a>
+            </ScrollLink>
           </div>
         </div>
       </div>
