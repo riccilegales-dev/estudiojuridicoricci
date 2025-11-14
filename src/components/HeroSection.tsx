@@ -2,20 +2,20 @@ import { Link } from "react-router-dom";
 import logoRicci from "@/assets/logo-ricci-circle.png";
 
 // Componente personalizado para desplazamiento
-const ScrollLink = ({ to, children }: { to: string; children: React.ReactNode }) => {
-  const handleClick = (e: React.MouseEvent) => {
+const ScrollLink = ({ children }: { children: React.ReactNode }) => {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    e.stopPropagation();
-    const target = document.getElementById(to.replace("#", ""));
+    e.stopPropagation(); // Método soportado por TypeScript
+    const target = document.getElementById("servicios"); // Especificamos el id directamente
     if (target) {
       target.scrollIntoView({ behavior: "smooth" });
     } else {
-      console.error(`Error: No se encontró la sección con id='${to.replace("#", "")}'.`);
+      console.error("Error: No se encontró la sección con id='servicios'.");
     }
   };
 
   return (
-    <Link to={to} onClick={handleClick} className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-primary font-semibold px-8 py-4 rounded-md transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+    <Link to="#" onClick={handleClick} className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-primary font-semibold px-8 py-4 rounded-md transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
       {children}
     </Link>
   );
@@ -47,7 +47,7 @@ const HeroSection = () => {
           </p>
           
           <div className="pt-4">
-            <ScrollLink to="#servicios">
+            <ScrollLink>
               Consultar
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M12 5v14M19 12l-7 7-7-7"/>
