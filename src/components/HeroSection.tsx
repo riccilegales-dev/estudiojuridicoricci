@@ -1,12 +1,11 @@
-import { Link } from "react-router-dom";
 import logoRicci from "@/assets/logo-ricci-circle.png";
 
-// Componente personalizado para desplazamiento
+// Componente personalizado para desplazamiento (versión CORRECTA para GitHub Pages)
 const ScrollLink = ({ children }: { children: React.ReactNode }) => {
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    e.stopPropagation(); // Método soportado por TypeScript
-    const target = document.getElementById("servicios"); // Especificamos el id directamente
+
+    const target = document.getElementById("servicios");
     if (target) {
       target.scrollIntoView({ behavior: "smooth" });
     } else {
@@ -15,9 +14,12 @@ const ScrollLink = ({ children }: { children: React.ReactNode }) => {
   };
 
   return (
-    <Link to="#" onClick={handleClick} className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-primary font-semibold px-8 py-4 rounded-md transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+    <button
+      onClick={handleClick}
+      className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-primary font-semibold px-8 py-4 rounded-md transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+    >
       {children}
-    </Link>
+    </button>
   );
 };
 
