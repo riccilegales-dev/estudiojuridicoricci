@@ -1,6 +1,13 @@
 import logoRicci from "@/assets/logo-ricci-circle.png";
 
 const HeroSection = () => {
+  const scrollToServices = () => {
+    const target = document.getElementById("servicios");
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center bg-gradient-to-br from-primary via-primary/95 to-primary/90 text-primary-foreground overflow-hidden">
       <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-foreground/10 via-transparent to-transparent"></div>
@@ -26,15 +33,15 @@ const HeroSection = () => {
           </p>
           
           <div className="pt-4">
-            <a 
-              href="#servicios" 
+            <button
+              onClick={scrollToServices}
               className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-primary font-semibold px-8 py-4 rounded-md transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
               Consultar
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
                 <path d="M12 5v14M19 12l-7 7-7-7"/>
               </svg>
-            </a>
+            </button>
           </div>
         </div>
       </div>
