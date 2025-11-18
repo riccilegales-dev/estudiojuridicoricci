@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write   # ← ESTO ES LO QUE FALTABA
   pages: write
   id-token: write
 
